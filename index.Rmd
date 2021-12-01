@@ -1,0 +1,115 @@
+--- 
+title: "FINAL REPORT"
+subtitle: "Oceanographic Research to Determining the Influence of Oceanographic Factors on the  Timing and Location of Spawning of tuna and tuna-like species in the Tanzanian Waters (on for the Northern Marine Tanzania Waters)"
+author: "Institute of Marine Sciences"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+classoption: oneside
+# bibliography: ref.bib
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is book illustrate how to process tuna data in R.
+github-repo: rstudio/bookdown-demo
+
+
+
+header-includes:
+  - \AtBeginDocument{\frontmatter}
+  - \usepackage{fontspec}
+  - \usepackage{float}
+  - \setmainfont{Adobe Caslon Pro} #Times New Roman
+  - \usepackage[none]{hyphenat}
+  
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy} 
+  - \fancyhead{} # clear headers
+  - \fancyfoot{} # clear footers 
+  - \renewcommand{\headrulewidth}{0pt} # eliminate horizontal line 
+  - \fancyfoot[c]{\thepage}
+  
+  - \usepackage{makeidx}
+  - \makeindex
+  
+  - \usepackage{titling}
+  # - \pretitle{\begin{center}
+    #\includegraphics[width=5in,height=4in]{fied_map.pdf}\LARGE\\}
+  - \posttitle{\end{center}}
+  - \usepackage{float}
+  
+  # prevent widow and orphans on pages
+  - \widowpenalty10000
+  - \clubpenalty10000
+  - 
+  
+  
+papersize: a4
+# geometry: "left=2.5cm, right=2cm, top=2cm, bottom=2.5cm"
+fontsize: 12pt
+linestretch: 1.2
+links-as-notes: true
+secnumdepth: 4
+number_sections: true
+lof: true
+lot: true
+
+
+## polishing
+link-citations: true
+colorlinks: true
+linkcolor: 'blue'
+citecolor: 'red'
+always_allow_html: true
+
+bibliography: sapphire.bib
+csl: elsevier-harvard.csl #apa.csl
+---
+
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE, comment = "", warning = FALSE,
+                        ## use fig.pos = "H" to insert the figure in a speciefied position and prevent floating.
+                      fig.pos = "H", out.extra = "") 
+
+options(knitr.duplicate.label = "allow")
+
+require(tidyverse)
+require(patchwork)
+require(sf)
+require(magrittr)
+require(kableExtra)
+
+```
+
+
+
+# Executive Summary {-}
+
+The need for use of oceanographic\index{Oceanographic} data to manage the marine resources is very clear. However, in the case of Tanzania the source of such data has always been a big challenge. As a contribution to solving this problem, the Institute of Marine Sciences, Tanzania secured funding under SAPPHIRE Project to conduct oceanographic surveys in the Pemba channel\index{Pemba Channel} and compile existing data from the Republic of South African\index{South Africa} Cruises, mainly Agulhas II (2017 and 2018)\index{Agulhas} that were made in the Tanzanian waters and set up the initial data base and make it readily accessible. 
+
+Through exploration of the oceanographic parameters, IMS was also expected to establish the oceanographic parameters influencing the timing and location of the spawning of tuna and tuna-like species in the Tanzania\index{Tanzania} Northern waters forming a demonstration project under SAPPHIRE. At the end of the two activities, two followup activities were carried out which was to conduct a workshop to share information with fishermen on the oceanographic conditions of the Pemba Channel and publication of the findings through policy briefs and peer review publications. 
+
+As a major recommendation on oceanographic data in Tanzania, scientists carrying out oceanographic work in the Tanzanian waters should be encouraged to supply their data to a database such as the National Oceanographic Data Centre housed at the Institute of Marine Sciences\index{Institute of Marine Sciences} of the University of Dar es Salaam\index{University of Dar es Salaam}. From the data that were collected from the previous cruises and the field campaigns, it can be said that the temperature\index{Temperature}, dissolved oxygen\index{Oxygen}, and nutrients \index{Nutrient} levels in the study area are supportive for tuna fishery. 
+
+# Acknowledgements {-}
+
+It would have been difficult for us to conduct this research without the support of large number of people and institutions. The UN Environment \index{UNEP} is highly acknowledged for funding this research through the project entitled “The Western Indian Ocean Large Marine Ecosystems Strategic Action Programme Policy Harmonisation and Institutional Reforms (WIO LME SAPPHIRE).” The SAPPHIRE\index{SAPPHIRE} project is implemented by UNDP\index{UNDP} and executed by the Nairobi Convention\index{Nairobi Convention} Secretariat with the funding from the Global Environmental Facility (GEF)\index{GEF}.
+
+
+# Abbreviations
+
+```{r}
+abb = readxl::read_excel("data/list_abbreviations.xlsx")
+
+abb %>% 
+  kableExtra::kbl(format = "latex", booktabs = TRUE, caption = NULL) %>% 
+  kableExtra::kable_styling(latex_options = "hold_position")
+```
+
+
+\mainmatter
+
+
+

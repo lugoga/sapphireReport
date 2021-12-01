@@ -1,0 +1,28 @@
+h1:results Results
+h2:existing Previous cruises
+tab:tab5 CTD casts made during different seasons along the coastal and marine waters of Tanzania
+fig:kimbiji-ctds Transect of CTD casts of the expeditions conducted in 2004, 2017 and 2018 off Kimbiji
+h3:fluorescence-cross-section Fluorescence  cross-section
+fig:fl-section A longitudinal section of fluorescence off Kimbiji during a) southeast and b) northeast
+h3:temperature-cross-section Temperature cross-section
+fig:te-section A longitudinal section of fluorescence off Kimbiji during a) southeast and b) northeast monsoon season
+h3:dissolved-oxygen-cross-section Dissolved Oxygen cross-section
+fig:ox-section A longitudinal section of dissolved oxygen off Kimbiji during a) southeast and b) northeast monsoon seasons
+h2:in-situ Field Survey
+tab:tab0 Number of CTD cast in the Pemba Channel  during the northeast (NE) and southeast (SE) monsoon seasons
+h3:surface-fluorescence Surface Fluorescence
+fig:field-fl Fluorescence (Chl-a) concentration sampled in the Pemba Channel during a) southeast and b) northeast monsoon seasons
+h3:surface-temperature Surface temperature
+fig:field-te Surface temperature sampled in the Pemba Channel during the a) southeast and b) the northeast monsoon seasons
+h3:surface-dissolved-oxygen Surface dissolved oxygen
+fig:field-ox Surface dissolved oxygen sampled in the Pemba Channel during the a) southeast and b) the northeast monsoon seasons
+h3:fluorescence-section Fluorescence section
+fig:field-flSection Cross-section of fluorescence sampled in the Pemba Channel during a) the southeast and b) the northeast monsoon seasons
+h3:temeperature-section Temeperature section
+fig:field-teSection Cross-section of temperature sampled in the Pemba Channel during a) southeast and b) northeast monsoon seasons
+h3:dissolved-oxygen-section Dissolved oxygen section
+fig:field-oxSection Cross-section of dissolved oxygen sampled in the Pemba Channel during a) southeast and b) northeast monsoon seasons
+h3:dissolved-nutients Dissolved nutients
+fig:nitrate Mean spatial distribution of dissolved nitrate in the Pemba Channel during a) southeast (SE) and b) northeast (NE) monsoon season. The curved arrow show the direction of the East African Coastal Current (EACC) 
+fig:phosphate Mean spatial distribution of dissolved phosphate in the Pemba Channel during a) southeast (SE) and b) northeast (NE) monsoon season: please note that the scale used differ between the two monsoon seasons. The curved arrow show the direction of the East African Coastal Current (EACC) 
+

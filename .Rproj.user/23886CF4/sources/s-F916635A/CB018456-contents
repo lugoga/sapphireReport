@@ -1,0 +1,105 @@
+
+# Apendix {-}
+## Appendix A {#appendix-a}
+
+
+```{r c, fig.cap="rabble rabble"}
+
+ctd = read_csv("data/ctd_expeditions.csv")
+
+ctd = ctd %>% 
+  # filter(is.finite(pressure)) %>% 
+  group_by(time,lon,lat,station) %>% 
+  summarise_all(.funs = max, na.rm = TRUE) %>% 
+  ungroup()  %>% 
+  separate(time, into = c("date", "time"), sep = " ")%>% 
+  relocate(cruise, .before = date) 
+  
+```
+
+
+```{r tab2}
+
+ctd %>% 
+  filter(date < lubridate::dmy(01012010)) %>% 
+  mutate_if(is.numeric, round, 2) %>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "Algoa Cruise Summary in August 2004") %>% 
+  kableExtra::add_header_above(c("","", "", "","","", "Maximum value" = 5)) %>% kableExtra::kable_styling(latex_options = "hold_position", font_size = 10)
+  
+  
+```
+
+\newpage
+
+```{r tab3}
+
+ctd %>% 
+  filter(date > lubridate::dmy(01012010) & date < lubridate::dmy(01012018)) %>% 
+  mutate_if(is.numeric, round, 2) %>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "Agulhas II Cruise Summary in November 2017") %>% 
+  kableExtra::add_header_above(c("","", "", "","","", "Maximum value" = 5)) %>% kableExtra::kable_styling(latex_options = "hold_position", font_size = 10)
+  
+
+
+  
+```
+
+\newpage
+
+
+```{r tab4}
+
+ctd %>% 
+  filter(date > lubridate::dmy(01012018)) %>% 
+  mutate_if(is.numeric, round, 2) %>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "Agulhas II Cruise Summary in June 2018") %>% 
+  kableExtra::add_header_above(c("","", "", "","","", "Maximum value" = 5)) %>% 
+  kableExtra::kable_styling(latex_options = "hold_position", font_size = 10) 
+  
+
+
+  
+```
+
+\newpage
+## Appendix B {#appendix-b}
+
+```{r tab6}
+field.ctd = read_csv("data/ctd_dsfa_sapphire.csv")
+
+field.ctd %>% 
+  mutate(season = if_else(month %in% c(5,6,7,8,9,10), "SE", "NE")) %>% 
+  group_by(lon,lat, season) %>% 
+  summarise_all(.funs = max, na.rm = TRUE) %>% 
+  ungroup() %>% 
+  filter(season == "NE") %>% 
+  select(date,season, lon,lat,pressure:temperature, salinity:fluorescence) %>% 
+  mutate(across(is.numeric, round, 2))%>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "CTD casts collected in the Pemba Channel during the NE monsoon season") %>% 
+  kableExtra::add_header_above(c("","", "", "", "Maximum value" = 5)) %>% 
+  kableExtra::kable_styling(latex_options = "hold_position", font_size = 10)
+```
+
+\newpage
+
+```{r tab7}
+field.ctd %>% 
+  mutate(season = if_else(month %in% c(5,6,7,8,9,10), "SE", "NE")) %>% 
+  group_by(lon,lat, season) %>% 
+  summarise_all(.funs = max, na.rm = TRUE) %>% 
+  ungroup() %>% 
+  filter(season == "SE") %>% 
+  select(date,season, lon,lat,pressure:temperature, salinity:fluorescence) %>% 
+  mutate(across(is.numeric, round, 2))%>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "CTD casts collected in the Pemba Channel during the SE monsoon season") %>% 
+  kableExtra::add_header_above(c("","", "", "", "Maximum value" = 5)) %>% kableExtra::kable_styling(latex_options = "hold_position", font_size = 10)
+```
+
+
+\newpage
+<!-- # Index {-} -->
+\printindex
+
+
+\newpage
+# References {-}

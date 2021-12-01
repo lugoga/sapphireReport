@@ -1,0 +1,539 @@
+---
+title: "report"
+author: "Masumbuko Semba and Nyamisi Peter"
+date: "7/26/2021"
+output: 
+       bookdown::pdf_document2:
+         latex_engine: xelatex
+
+
+header-includes:
+  - \AtBeginDocument{\frontmatter}
+  - \usepackage{fontspec}
+  - \usepackage{float}
+  - \setmainfont{Adobe Caslon Pro} #Times New Roman
+  - \usepackage[none]{hyphenat}
+  
+  - \let\counterwithout\relax
+  - \let\counterwithin\relax
+  - \usepackage{chngcntr}
+  - \counterwithin{figure}{section}
+  
+  
+bibliography: sapphire.bib
+csl: elsevier-harvard.csl #apa.csl
+
+papersize: a4
+geometry: "left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm"
+fontsize: 12pt
+linestretch: 1.2
+secnumdepth: 4
+number_sections: true
+indent: false
+lof: false
+lot: false
+toc: false
+toc_depth: 4
+
+## polishing
+link-citations: true
+colorlinks: true
+linkcolor: 'blue'
+citecolor: 'red'
+
+
+
+abstract: |
+
+  The need for use of oceanographic data in management of the marine resources is very clear. However, in the case of Tanzania the source of such data has always been a big challenge. As a contribution to solving this problem the Institute of Marine Sciences, Tanzania applied for funding under SAPPHIRE Project to conduct oceanographic surveys of the Pemba channel and compile existing data from the Republic of South African Cruises, mainly Agulhas II (2017 and 2018) that were made in the Tanzanian waters and set up the initial data base and make it readily accessible. By studying the oceanographic parameters of the waters, IMS was also expected to establish the oceanographic parameters influencing the timing and location of the spawning of tuna and tuna-like species in the Tanzania Northern waters forming a demonstration project under SAPPHIRE. 
+  At the end of the two activities, two followup activities were carried out which was to conduct a workshop to inform fishermen on the oceanographic conditions of the Pemba Channel and publication of the findings through policy briefs and peer review publications. As a major recommendation on oceanographic data in Tanzania, scientists carrying out oceanographic work in the Tanzanian waters should be encouraged to supply their data to a database such as the National Oceanographic Data Centre housed at the Institute of Marine Sciences of the University of Dar es Salaam. From the data that were collected from the previous cruises and the field campaigns, It can be said that the temperature, dissolved oxygen, and nutrients attaining in the study area are supportive for tuna fishery. However, the fishermen should be supported to improve their fishing vessels and gears to be able to profitably fish the tuna and tuna-like species. 
+  
+  
+  ****
+
+
+
+---
+
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, message = FALSE, comment = "", warning = FALSE,
+                        ## use fig.pos = "H" to insert the figure in a speciefied position and prevent floating.
+                      fig.pos = "H", out.extra = "") 
+
+options(knitr.duplicate.label = "allow")
+
+require(tidyverse)
+require(patchwork)
+require(sf)
+require(magrittr)
+
+```
+
+
+\newpage
+```{=latex}
+% Trigger ToC creation in LaTeX
+\tableofcontents
+
+```
+
+\newpage
+```{=latex}
+
+% Trigger LOF creation in LaTeX
+\listoffigures
+
+```
+    
+\newpage
+```{=latex}
+
+% Trigger LOT creation in LaTeX
+\listoftables
+
+```
+
+
+\mainmatter
+
+\newpage
+# INTRODUCTION
+
+The United Republic of Tanzania (URT) is a coastal state in the Western Indian Ocean (WIO) region, situated in the eastern part of Africa, located between latitude 1.0$^\circ$S -- 11$^\circ$S and longitude 29.3$^\circ$E -- 40.15$^\circ$E. The country has a total surface area of 945,040 km^2^, of which 881,000 km^2^ are in Mainland and 2,650 km^2^ are in Zanzibar [@easternResources]. The country has a coastline of about 1,450 km long stretching from the northern border with Kenya to the southern border with Mozambique [@masalu2008]. Tanzania’s marine area includes the extensive internal waters of the Pemba, Zanzibar and Mafia channels; a Territorial Sea of 64,000 km^2^ and an Exclusive Economic Zone (EEZ) of about 223,000 km^2^.  
+
+The continental shelf region of Tanzania is characterized by an intensely dynamic pelagic ecosystem. Water column properties are continuously changing due to in-situ biological, chemical and physically-mediated processes, regional cycles in solar radiation, prevailing winds, and global-scale effects on ocean circulation.  The marine ecosystem in the continental shelf provide a wide range of habitats making for a significant fisheries resources. The fishery sector in Tanzania can broadly divided into three groups---small-scale artisan, semi-industrial and industrial fisheries [@jiddawi2002].
+
+Currently, the coastal fisheries in Tanzania is dominated by artisanal fisheries. The fisheries are concentrated in nearshore waters with fisheries being conducted using small vessels and simple fishing gears. In these waters, the most productive fishing grounds are found proximal to the coral reefs, seagrass and mangrove habitats. These areas are in turn experiencing heavy fishing pressure (ASCLME, 2012), which is considered to contribute to the over-exploitation of some of the fish species and degradation of the fish supporting habitats (coral reefs, seagrasses and mangroves) by human activities [@khatib2018].
+
+The second group of the fishery in Tanzania is the semi-industrial, which dominated with small-scale fishers and is commercially oriented using a reasonable amount of capital but without traditional involvement [@fishAct]. This fishery is mainly involved in prawn fishing using prawn trawlers. Industrial fishing is the third category of fisheries and is taking place in the Exclusive Economic Zone (EEZ). Industrial EEZ fisheries are exploited mostly by Distant Water Fishing Nations (DWFN) vessels. The EEZ fisheries are regulated by the Deep Sea Fishing Authority (DSFA) established in 2010 under the Deep-Sea Fishing Authority Act (DSFA) Act (1998) and its amendments of 2007, recently superseded by the Deep-Sea Fisheries Management & Development Act, 2020.
+
+Fisheries sector has a lot of economic and social significance in the country. Fishing has historically been a profitable activity, and over the years, has attracted more people. The fisheries sector is among the most important socio-economic resource base in the country (ASCLIME, 2012). Fish serves as a major source of animal protein and contributes 30% of total animal protein intake and serves as essential fats and micro-nutrients (FAO,2007). Fisheries also contribute to foreign exchange earnings and government revenue. The fishing industry accounts for about 10% of total exports and 1.71% of the gross domestic product (GDP) for Mainland and 4.8% for Zanzibar (URT, 2018).
+
+Tanzania EEZ lies within the richest tuna belt of the South-West Indian ocean [@semba2021Tuna]. Its fishery is mostly done by DWFN which are dominated by EU fleet from French and Spanish (purse-seiners) and Asian longline fleets (mainly from Japan, Korea and Taiwan/China). Their main gear used are longlines and purse-seines respectively. The artisanal fishers play an important role in the fishing industry. The contribution of artisanal fishers is estimated to be more than 80% of catches and that, artisanal fishers fishing tuna with tuna fleets consisting of small fishing units.
+
+Despite more than two decades of oceanographic research on coast and marine waters of Tanzania and considerable progress in understanding regional dynamics [@nansen], broad-scale distributional features are still poorly known. This reflects, with dedicated survey program for the systematic collection and dissemination of regional hydrographic data such as the second International Indian Ocean Expedition (IIOE-2) of 2017 and 2018, the RV METEOR cruise  in the continental margin East Africa in 2008, the RV Algoa cruise in the coastal water of Tanzania in 2004 and the RV Dr Fridtj of Nansen in the Western Indian Ocean. The little published information which does exist is limited [@nansen].  
+
+This project was initiated with the aim of delivering best practices in coastal resource management of the seascape along the northern coast of Tanzania in relation to tuna and tuna like fisheries. The main objective of this study was to contributes to achieving effective long-term ecosystem management in the Western Indian Ocean Large Marine Ecosystems (LMEs). This core objective was achieved through four specific objectives:
+
+i.	Analyse and synthesize oceanographic data from previous cruises (Agulhas II cruise data)
+i.	Undertake four field campaigns each during the NE and SE monsoon periods on the critical habitats of the seascape between Tanzania Mainland and the Zanzibar islands
+
+The core result of study that will later be shared to the general community to support  in policy harmonization and management reforms towards improved ocean governance. The findings will also help community engagement and empowerment in sustainable resources management. The results will be shared through; 
+
+i.	peer reviewed scientific publications on mainstreaming of oceanographic data in management
+i.	Policy brief on mainstreaming of oceanographic data
+i.	Presentation of a report on lessons and experiences in the oceanographic data collection at national level
+i.	Update the SAPPHIRE Project Coordination Unit on progress of project implementation at institutional level
+
+
+
+# METHODS
+## Geographical Extent
+The focus of this study was the northern Tanzanian coastal waters, largely encompassing the Pemba and Zanzibar Channels (Figure \@ref(fig:map)). The Pemba Channel is characterized by a narrow continental shelf (< 6 km) that drops and reaches a maximum depth of 800 [@semba2019]. The Zanzibar channel, by contrast, is characterized by a shallow channel less than 30 m deep, located between Tanzania Mainland and Unguja Island [@shaghude1998morphology].
+
+
+```{r map, fig.align='center', fig.cap="A map of northern coastal Tanzania showing the bathymetry of Pemba and Zanzibar Channel. A solid black line representing isobar of 200 meters contour line. Insets are depth profile along the transects across the Pemba and Zanzibar Channel. Solid black line with arrow represent the western branch and the main East African Coastal Current"}
+
+# knitr::include_graphics("graphics/map-01.png")
+knitr::include_graphics("graphics/map.pdf")
+```
+
+
+The most prominent hydrographic feature along this stretch is the East African Coastal Current (EACC) which is a western boundary current. This current distributes heat, salinity and nutrients along the coast of Tanzania. The current is influenced by the two seasonal monsoon winds [@nyandwi2013; @semba2019,], which blow toward the North during the Southeast (SE) monsoon season (April to October) (Figure \@ref(fig:wind)b) and toward the South during the Northeast (NE) (Figure \@ref(fig:wind)a) monsoon season (November to March). The reversal of the monsoon trade winds over the Tanzanian coastal waters has considerable influence on the various oceanographic/biological parameters including sea surface temperature and chlorophyll-a (Shaghude et al, in prep.). 
+
+```{r wind, fig.align='center', fig.cap="Wind Speed and direction in the Pemba Channel during the northeast (NE) and southeast (SE) monsoon seasons"}
+
+# knitr::include_graphics("graphics/wind_plots-01.png")
+knitr::include_graphics("graphics/wind_plots.pdf")
+```
+
+## Data Sources
+This research used *primary* and *secondary* data. The secondary data consist of existing CTD profiles of temperature, salinity, oxygen, fluorescence and turbidity and current velocity collected from previous cruises and expeditions. These data were acquired by various oceanographic cruises conducted along the northern Tanzanian coastal waters. Similar to secondary data, primary data also consist of profiles from CTD and current velocities from ADCP. But, unlike the secondary data, primary data were collected through oceanographic field campaigns along the northern Tanzanian coastal waters (between the mainland and Pemba islands).
+
+### Oceanographic data from previous cruises
+
+Marine scientists and oceanographers from many countries have cooperated on research in the Indian Ocean. @nansen described vessels that explored and researched the Western Indian Ocean over the last 50 years. Since 2004, most of the expeditions surveyed also the coastal and marine waters of Tanzania. This begin with **Algoa** in 2004, followed by RV Meteor in 2008,  the Second Indian Ocean Expedition by the **R.V Agulhas** in November 2017 and June 2018. The last expedition through the waters of Tanzania is the **RV Dr Fridtj of Nansen**, which crossed the area in 2019.The geographical locations of CTD casts from the three expeditions are shown in figure \@ref(fig:ctd-expeds).
+
+```{r ctd-expeds, fig.align='center', fig.cap="A map of the coastal and marine water of Tanzania displaying the geographical positions of CTD casts deployed with the RV Algoa (2004) and RV Agulhas II (2017 and 2018) expeditions"}
+
+# knitr::include_graphics("graphics/map_expeditions-01.png")
+knitr::include_graphics("graphics/map_expeditions.pdf")
+```
+
+
+These expeditions provided high frequency CTD and ADCP data from the surface to the deepest part of the ocean. The data include physical properties—temperature; chemical properties—salinity, oxygen, conductivity; and biological properties—fluorescence. In addition, the cruises measured trajectories of ocean current velocity using an ADCP. These data can characterise the coastal and marine waters from the surface to the deepest waters as the profiles measured the water characteristics.
+
+Despite the various cruises, the data from these cruises are hardly found, which had hampered research to characterise the coastal and marine waters of Tanzania. Therefore, this research fill the existing information gap by assembling the data from previous cruises to characterize the marine waters of Tanzania. The first dataset consists of CTD casts with ADCP acquired in 2004 (by a south African research vessel, RV Algoa), 2017 and 2018 (by a South African research vessel, RV Agulhas II) and 2008 by a German ship RV Meteor.
+
+### Field campaigns {#field}
+
+The field dataset was planned to be completed by the end of the year 2020. The oceanographic field campaigns for this dataset focused on collecting insitu measurements covering the annual seasonal monsoon cycle over the northern Tanzanian coastal waters between the mainland and the Pemba islands. To complement the previous expeditions, the oceanographic field campaign aimed to collect profiles using CTD and other water quality parameters including chlorophyll-a, suspended solids, salinity, dissolved oxygen (DO) and pH. In this report field campaigns during the NE and SE monsoon seasons were carried out from February 2020 to April 2020 and between July and October 2020 sampling the three transects across the Pemba Channel. The March 2020 campaign included CTD casts, water sampling and ADCP deployment.
+
+The area between Pangani and Tanga was selected to capture the oceanographic variables within the western side of the Pemba Channel (off Tanga) and between Mkoani and Wete in Pemba Island was selected to capture the field campaign on the western side of Pemba island (Figure 3). The field campaign was planned between February and April in order to capture the oceanographic conditions during the Northeast monsoon season, which starts in October/November and ends in March/April. The southeastern monsoon period was covered between July and October. A total of 26 stations were occupied in three transects crossing the Pemba Channel between the Mainland Tanzania to Pemba Island (Figure \@ref(fig:ctd-map)).
+
+
+
+```{r ctd-map, fig.align='center', fig.cap="A map of the Pemba Channel showing geographical positions of CTD stations casted during the northeast and south east monsoon seasons."}
+
+# knitr::include_graphics("graphics/map_ctd_casts-01.png")
+knitr::include_graphics("graphics/map_ctd_casts.pdf")
+```
+
+
+###	CTD configuration
+
+CTD profiles of various variables were collected with a CTD machine namely, SBE 19plus V 2.2d . This  CTD instrument is configured with an internal Digiquartz pressure sensor and a pair of external temperature and conductivity sensors. The temperature-conductivity sensor pair used a Sea-Bird TC duct which circulated seawater through a pump. The instrument configuration included also additional sensors to collect pH, oxygen, fluorescence, PAR, Nitrogen saturation, Oxygen saturation and turbidity Table \@ref(tab:tab1)).
+
+
+```{r tab1}
+
+data.frame(Variable = c("Temperature", "Conductivity", "Salinity", "Oxygen", "Fluorescence", "PAR", "pH", "Nitrogen Saturation", "Oxygen Saturation", "Turbidity", "Density"),
+           Sensor = c("tv290C","c0S/m","sal00","sbeox0ML/L","flECO-AFL","par/log","ph","n2satML/L","oxsatML/L","turbWETntu0","density00"),
+           SI = c("Degree","S/m","PSU","ml/l","mg/m3","umol photons/m2/s","pH","ml/l","ml/l","NTU","kg/m3")) %>%
+  kableExtra::kable("latex", booktabs = T, 
+                    caption = "Sensor and Variables from CTD instruments") %>%
+  kableExtra::kable_styling(font_size = 10, latex_options = "hold_position")
+  
+```
+
+### CTD deployment
+
+The cast locations along the three transects were predetermined and the maximum depth at each location was determined. The CTD was mounted in a vertical position to a 150 m rope from the lower part of a boat. The deployment procedure involved lowering a CTD instrument to about 2 meters below the surface  and waiting for a minute to stabilize the CTD pumps. The CTD was then raised until the sensors were close to the surface to begin the CTD profiling. The time and position of each cast was recorded using a hand held GPS device. 
+
+### Pre–processing of CTD Data
+
+The first part of standard processing of the CTD data was done with the CTD Data Acquisition Software from  Sea-Bird Electronics, Inc. as raw data and stored on a computer as binary number in `.hex` format. Then raw data were converted from frequencies to engineering units using nominal sensor calibrations in SBE Data Processing software from Sea-Bird Electronics (www.seabird.com). The process involved selecting of variables based on sensors configured in the CTD instrument. The configuration file that comes with the instrument, governs the type of sensor and the variables collected. The variables of interest were selected and converted into physical units. The algorithms used to derive salinity and density while converting raw data was based on formulas of Equations of State (EOS-80). Both up-cast and down-cast were processed and exported as ASCII file in `.cnv` format.
+
+### Post–Processing of CTD Data
+
+The ASCII files were imported for post-processing. The post processing of the CTD data was done using **oce** package [@kelley; @oce] in **R** language for statistical and computing [@r-base]. Profiles of temperature, conductivity, oxygen, fluorescence and SPAR were aligned to standard pressure of 0.25dbar interval. Then the standardized profiles were filtered with a low pass filter to remove spikes of CTD measurement caused by tow and roll of a boat. After this procedure salinity was computed from conductivity, temperature and pressure. The step-by-step for processing CTD profile are streamlined in a single function called  `cnv_tibble` from the **wior** package [@wior]. The function process the binary number in the CTD file and return a rectangular table with all the necessary variables [@wior]. The rectangular table of stations along with  its variables for the Algoa two Agulhas II expeditions are shown in appendix \@ref(appendix-a). The CTD stations for field campaign during the NE and SE monsoon season are also listed in appendix \@ref(appendix-b).
+
+### Data from water samples
+In addition to previous expedition and CTD, we also collected a third dataset using Naskin bottles. This dataset was collected simultaneously with CTD data at the same geographical position shown in figure \@ref(fig:ctd-map). The water for temperature, chlorophyll-a, dissolved oxygen, nitrate and phosphate were sampled at three strata---surface, 15 meter and 30 depth. 
+
+## Analysis and plotting
+We chose the following analytical procedures and graphical formats as those which best illustrate the distributional features:
+
+**Seasonal contour maps** are used to represent the general features of NE vs. SE distributions of surface parameters in the Pemba Channel (*See* Figure \@ref(fig:map)).  The maps were constructed from all available surface (about 1-m depth) measurements made during each of the two seasons - here defined as May-September for southeast (SE) and October-March for NE monsoon season based on parameter similarities in between-month analyses of variance. Data were binned and organized by coordinate position into a matrix of 0.1 $\times$ 0.1$^\circ$ grid squares.   
+
+**Seasonal, cross-shelf depth profiles** are used to illustrate the connections between the temporal dynamics of regional surface features and vertical distributions. As above, the plots incorporate all measurements along the Kimbiji transect (*See* section \@ref(existing)) and Pemba Channel (*See* section \@ref(field)).  Data from NE and SE monsoon seasons were averaged in 5-km distances from shore before contouring.  The averaged grid values were contour-mapped using the **ggplot2** [@ggplot] and **metR** [@metr] package in R environment [@r-base].
+
+**Inter-annual anomaly plots** are used to summarize low frequency changes in regional environmental conditions. Following standard procedures in analyses of anomaly patterns from satellite data [@semba2021], we based our calculations on regionally- averaged parameter values from surface. Data from the central coasts of Tanzania (Kimbiji) and Pemba Channel were organized for this analysis following the influence of the East Africa Coastal Current on these two zones.  Inter-annual monthly means for each area were computed as the unweighted average of monthly values for all years in which data were collected. Regional parameter anomalies for a given month and year were computed as the mean of all individual anomalies relative to the monthly means for the areas in which the measurements were made. Nonparametric, rank-difference analysis was used to test correlations among anomaly patterns. This test is less powerful (i.e., more conservative) than the conventional least-squares approach but avoids the distributional and relational assumptions implicit in parametric analyses [@openair].  
+
+
+\newpage
+# RESULTS
+The results present (a) data from the previous cruises (i) CTD profiles and Sections from ship cruises made during the years 2004, 2008, 2017, and 2018 (ii) ADCP data available from the years 2018, 2017 and 2004, (b) (i) CTD profiles and Sections from the field campaigns made in February/March 2020 and (ii) ADCP data collected in March 2020. 
+
+## 	Previous cruises {#existing}
+
+The composite data set for the coastal and marine water of Tanzania from the previous expeditions consisted of 93 CTD casts, out of which 22 are from Algoa during the SE and 33 from Agulhas II during the NE monsoon season of 2017. The expedition of SE monsoon season in 2018 with R.V Agulhas II deployed 38 casts (Table \@ref(tab:tab5)), which was the largest number of casts compared to other two expeditions. However, some of the cast of 2018 are outside the jurisdiction of coastal and marine waters (figure \@ref(fig:ctd-expeds)).
+
+
+```{r tab5}
+ctd = read_csv("data/ctd_expeditions.csv")
+
+ctd %>% 
+  mutate( year = lubridate::year(time),
+         month = lubridate::month(time),
+         season = if_else(month > 8, "NE", "SE")) %>% 
+  distinct(lon, lat,.keep_all = TRUE) %>% 
+  group_by(cruise, year, season) %>% summarise(n = n()) %>% 
+  mutate(year = as.integer(year),
+         cruise = if_else(cruise == "Agulhas", "Agulhas II", "Algoa")) %>% 
+  arrange(year) %>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "Number of Conductivity-Temperature-Depth profiles deployed at different season of the year during there expeditions along the coastal and marine waters of Tanzania", align = "c", col.names = c("Cruise", "Expedition Year", "Monsoon Season", "Number of Casts")) %>% 
+  kableExtra::kable_styling(latex_options = "hold_position", font_size = 11)
+  
+  
+```
+
+In presenting the data, we attempted to strike a balance between a level of detail adequate for describing general distributional features and a useful level for designing future research programs. Even so, the appearance of some figure excess and redundancy is unavoidable since each of the 6 parameters varies in four dimensions - time, depth, latitude and distance from shore. For previous expedition, a transect off Kimbiji was selected because is the only transect that has CTD casts along the same transects from the three expeditions (Figure \@ref(fig:kimbiji-ctds)). These zone has been sampled by the three expeditions and hence provide sufficient data to explore the hydrographic profiles and sections along this area. Also, the Kimbiji transect is washed throughout the year with East African Coastal Current. The river discharge from the Rufiji Eastury also affect the physical, biological and chemical characteristics of water along the transect. 
+
+
+```{r kimbiji-ctds, fig.align='center', fig.cap="Transect of CTD casts of the expeditions conducted in 2004, 2017 and 2018 off Kimbiji"}
+
+# knitr::include_graphics("graphics/kimbiji_cast-01.png")
+knitr::include_graphics("graphics/kimbiji_cast.pdf")
+```
+
+### Fluorescence cross-section
+
+The cross section of fluorescence along a transect off--Kimbiji  (Figure \@ref(fig:kimbiji-ctds)) is shown in Figure \@ref(fig:fl-section). The fluorescence values at the surface water with season. The surface has relatively higher fluorescence value during the southeast monsoon season (Figure \@ref(fig:fl-section)a) compared to the northeast monsoon season (Figure \@ref(fig:fl-section)b).
+
+
+
+```{r fl-section, fig.align='center', fig.cap="A longitudinal section of fluorescence off Kimbiji during a) southeast and b) northeast"}
+
+# knitr::include_graphics("graphics/kimbiji_chl-01.png")
+knitr::include_graphics("graphics/kimbiji_chl.pdf")
+```
+
+
+### Temperature cross-section
+The cross section of temperature along a transect off--Kimbiji (Figure \@ref(fig:kimbiji-ctds)) is shown in Figure \@ref(fig:te-section). The surface water is warmer during the northeast monsoon season (Figure \@ref(fig:te-section)b) compared and less warm during the southeast monsoon season (Figure \@ref(fig:te-section)a). The strong wind and surface current during the SE monsoon season result in mixing of the surface layer and deepening of the mixed layer depth.
+
+
+```{r te-section, fig.align='center', fig.cap="A longitudinal section of fluorescence off Kimbiji during a) southeast and b) northeast"}
+
+# knitr::include_graphics("graphics/kimbiji_temperature-01.png")
+knitr::include_graphics("graphics/kimbiji_temperature.pdf")
+```
+
+### Dissolved Oxygen cross-section
+The cross section of dissolved oxygen along a transect off--Kimbiji (Figure \@ref(fig:kimbiji-ctds)) is shown in Figure \@ref(fig:ox-section). The surface water is has more dissolved oxygen during the southeast monsoon season (Figure \@ref(fig:ox-section)a) compared and the northeast monsoon season (Figure \@ref(fig:ox-section)b). The solubility of dissolved oxygen is reduced during the northeast because of the elevated temperature and weaken of wind stress.
+
+
+```{r ox-section, fig.align='center', fig.cap="A longitudinal section of dissolved oxygen off Kimbiji during a) southeast and b) northeast"}
+
+# knitr::include_graphics("graphics/kimbiji_oxygen-01.png")
+knitr::include_graphics("graphics/kimbiji_oxygen.pdf")
+```
+
+
+## Field Survey {#in-situ}
+Section \@ref(existing) presented result of the Kimbiji transect as a representative of the previous cruise. In section \@ref(field), we described the reasons and timing for choosing the Pemba Channel as the case study for hydrographic survey. The field campaign conducted in 2020 to complement the data gap of the previous expedition, deployed a total of 51 casts in the Pemba Channel (Table \@ref(tab:tab0)). Although the survey was planned for 48 cast, in which 24 cast for each season, a technical error that led to a CTD fail to record one cast during the NE season resulted to one CTD cast less than was planned. Further, there were three more CTD cast during the SE than the planned 24 because while in the field, feature of interest like vorticity were observed and researchers decide to capture them. 
+
+
+```{r tab0}
+field.ctd = read_csv("data/ctd_dsfa_sapphire.csv")
+
+field.ctd = field.ctd %>% 
+  mutate(season = if_else(month %in% c(5,6,7,8,9,10), "SE", "NE")) %>% 
+  group_by(lon,lat, season)
+
+field.ctd %>% 
+  distinct(lon,lat, .keep_all = T) %>% 
+  group_by(season) %>% 
+  count() %>% 
+  ungroup() %>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "Number of CTD cast deployed in the Pemba Channel  during the northeast (NE) and southeast (SE) monsoon seasons", col.names = c("Monsoon Season", "Number of Casts"), align = "c") %>% 
+  kableExtra::kable_styling(latex_options = "hold_position", font_size = 11)
+```
+### Surface Fluorescence
+
+Seasonal surface maps of surface fluorescence in the Pemba Channel is shown in figure \@ref(fig:field-fl). The values of fluorescence are higher during the SE monsoon (Figure \@ref(fig:field-fl)a) compared to the NE monsoon season (Figure \@ref(fig:field-fl)a). The EACC water is evident as a tongue of low fluorescence during the SE, which lies at the middle of the channel from the south northward of the channel. During NE monsoon season, however, the same area experience relatively higher fluorescence values than the western and eastern side of the channel (Figure \@ref(fig:field-fl)b).  
+
+```{r field-fl, fig.align="center", fig.cap="Fluorescence (Chl-a) concentration sampled in the Pemba Channel in a) southeast and b) northeast monsoon seasons"}
+
+# knitr::include_graphics("graphics/field_fluorescence_se_ne-01.png")
+knitr::include_graphics("graphics/field_fluorescence_se_ne.pdf")
+```
+
+### Surface temperature
+The surface temperature in the Pemba Channel is shown in figure \@ref(fig:field-te). The surface water has low temperature during the SE season (Figure \@ref(fig:field-te)a) compared to the NE season (Figure \@ref(fig:field-te)b). Surface water adjacent to the coast of Pemba Island during the NE are warmer than the rest of the channel (Figure \@ref(fig:field-te)a). This can be contributed by the shear velocity of strong vorticity that detach from the EACC during the NE. Spatial pattern in the distribution of temperature are similar for the most part of the Pemba Channel during the SE monsoon season (Figure \@ref(fig:field-te)a) . 
+
+```{r field-te, fig.align="center", fig.cap="Surface temperature sampled in the Pemba Channel in a) southeast and b) northeast monsoon seasons"}
+
+# knitr::include_graphics("graphics/field_temperature_se_ne-01.png")
+knitr::include_graphics("graphics/field_temperature_se_ne.pdf")
+```
+
+### Surface dissolved oxygen
+
+The surface dissolved oxygen in the Pemba Channel is shown in figure \@ref(fig:field-ox). Surface dissolved oxygen during the SE monsoon (Figure \@ref(fig:field-ox)a) is higher than those in NE monsoon season (Figure \@ref(fig:field-ox)b). Surface water is in excess of 0.3 mgL^-1^ in the whole channel during the SE period. 
+
+```{r field-ox, fig.align="center", fig.cap="Surface dissolved oxygen sampled in the Pemba Channel in a) southeast and b) northeast monsoon seasons"}
+
+# knitr::include_graphics("graphics/field_do_se_ne-01.png")
+knitr::include_graphics("graphics/field_do_se_ne.pdf")
+```
+
+
+### Fluorescence section
+
+Depth-longitudinal section of seasonal fluorescence for the Pemba Channel are shown in figure \@ref(fig:field-flSection). In general, the SE season is more productive (figure \@ref(fig:field-flSection)a) than the NE season (figure \@ref(fig:field-flSection)b). Both season shows the presence of high fluorescence values in the mid-water, however, this phenomenon is more pronounced during the NE monsoon season. The doming of high fluorescence values at subsurface water between 30 and 90 meters from the coast to about 39.4$^\circ$E during the NE (Figure \@ref(fig:field-flSection)b) could be contributed by the river discharge from Pangani River, that brings nutrient rich water into the estuary. The discharge of Pangani River is pushed northward with along with the flowing of the EACC and hence nourish the coastal water on the western side of Pemba, which boost primary productivity in this area during the NE monsoon seasons. 
+
+
+```{r field-flSection, fig.align="center", fig.cap="Cross-section of fluorescence sampled in the Pemba Channel in a) southeast and b) northeast monsoon seasons"}
+
+# knitr::include_graphics("graphics/section_field_fluorescence_se_ne-01.png")
+knitr::include_graphics("graphics/section_field_fluorescence_se_ne.pdf")
+```
+
+### Temeperature section
+
+The depth--longitudinal cross-section of temperature in the Pemba Channel is shown in figure \@ref(fig:field-teSection). Temperature in the Pemba Channel from the surface to 90 metres deep is 4$^\circ$C warmer during the NE (Figure \@ref(fig:field-teSection)b) compared to the SE monsoon season (Figure \@ref(fig:field-teSection)a). Both season the surface layer is well mixed with but the difference in temperature  is the key feature that distinguish the seasonal variation in the channel. Surface water are consistently higher on the eastern side of Pemba Channel in both season (Figure \@ref(fig:field-teSection))
+
+```{r field-teSection, fig.align="center", fig.cap="Cross-section of temperature sampled in the Pemba Channel in a) southeast and b) northeast monsoon seasons"}
+
+# knitr::include_graphics("graphics/section_field_temperature_se_ne-01.png")
+knitr::include_graphics("graphics/section_field_temperature_se_ne.pdf")
+```
+
+### Dissolved oxygen section
+
+
+The depth--longitudinal cross-section of dissolved oxygen in the Pemba Channel is shown in figure \@ref(fig:field-oxSection). Although patterns in the distribution of dissolved oxygen (Figure \@ref(fig:field-oxSection)) must be interpreted with some caution since they are influenced by both biological and physical processes, they generally conform to the patterns observed for the more conservative variables like temperature (figure \@ref(fig:field-teSection)). The depth-longitudinal scale, for instance shows that higher values of dissolved oxygen above 5 mgL^-1^ are found in subsurface water during the NE monsoon season (Figure \@ref(fig:field-oxSection)b) but the same season depicts the lowest value of dissolved oxygen at the surface water (Figure \@ref(fig:field-oxSection)b). The value of dissolved oxygen during the SE monsoon is consistently about 4.8mgL^-1^ throughout the water column. The wind stress and strong surface current during the SE monsoon season are the main factors that mix the water and create a layer of uniform dissolved oxygen from the surface to about 120 metres. 
+
+
+```{r field-oxSection, fig.align="center", fig.cap="Cross-section of dissolved oxygen sampled in the Pemba Channel in a) southeast and b) northeast monsoon seasons"}
+
+# knitr::include_graphics("graphics/section_field_do_se_ne-01.png")
+knitr::include_graphics("graphics/section_field_do_se_ne.pdf")
+```
+
+### Dissolved nutients
+
+The seasonal distribution of dissolved nitrate in the Pemba Channel is presented in figure \@ref(fig:nitrate). On a channel scale, surface nutrient concentrations vary considerably with monsoon seasons, with highest values during the southeast period (Figure \@ref(fig:nitrate)a) and lowest during the northeast monsoon season (Figure \@ref(fig:nitrate)b). Low nutrient water that comes with the EACC is evident in the middle of the channel during the NE season (Figure \@ref(fig:nitrate)b). The Pangani River, though has high discharge during the SE, its contribution of surface nitrate in the Pemba Channel is unclear (figure \@ref(fig:nitrate)a). 
+
+
+```{r nitrate, fig.align="center", fig.cap="Mean spatial distribution of dissolved nitrate in the Pemba Channel during a) southeast (SE) and b) northeast (NE) monsoon season. The curved arrow show direction of the East African Coastal Current (EACC) "}
+
+# knitr::include_graphics("graphics/nitrate_season-01.png")
+knitr::include_graphics("graphics/nitrate_season.pdf")
+```
+
+The phosphate concentration in the surface water of Pemba Channel also vary with monsoon season (Figure \@ref(fig:phosphate)). Similar to nitrate, the surface water contain more phosphate during the SE period (Figure \@ref(fig:phosphate)a) compared to the NE season (Figure \@ref(fig:phosphate)b). The northwest side of the channel has apparently more concentration in both season (Figure \@ref(fig:phosphate)). The effect of both EACC and Pangani River is not clearly resolved in the spatial pattern of phosphate in the Channel. The Effect of NE upwelling [@semba2021] could be the possible link for high phosphate values on the western side of the channel during the NE monsoon season (Figure \@ref(fig:phosphate)b)
+
+```{r phosphate, fig.align="center", fig.cap="Mean spatial distribution of dissolved phosphate in the Pemba Channel during a) southeast (SE) and b) northeast (NE) monsoon season. The curved arrow show direction of the East African Coastal Current (EACC) "}
+
+# knitr::include_graphics("graphics/phosphate_season-01.png")
+knitr::include_graphics("graphics/phosphate_season.pdf")
+```
+
+
+
+\newpage
+# SUMMARY
+
+Hydrographic data collected over the past three decades has provided a relatively coherent view of mean seasonal dynamics in the pelagic environment on the coastal water of Tanzania (*See* appendix \@ref(appendix-a) and \@ref(appendix-b)). The seasonal shift in oceanographic conditions like surface wind, surface current, insolation and precipitation substantially the influence hydrography of coastal and marine  water of the Tanzania. The seasonal pattern in solar irradiation affects the warming of surface waters and the timing and magnitude of primary production. Local wind stress contributes to the mixing of water-column properties and controls the direction and speed of surface water movement, hence the Occurrence of upwelling events in the western side of the Pemba Channel [@semba2021]. Regional precipitation, which occurs in excess of evaporation, influences the salt content of all surface waters but more dramatically at the points of river discharge. The surface current like the northward flowing East African Coastal Current also contribute significantly to the unique hydrographic properties along the coastal water of Tanzania including the Pemba Channel. 
+
+The findings from this study reveal a dramatic difference of sea surface temperature, fluorescence and dissolved oxygen between monsoon seasons. For example,  surface waters off Kimbiji  are colder (Figure \@ref(fig:te-section)a), with high fluorescence (Figure \@ref(fig:fl-section)a) and dissolved oxygen levels (Figure \@ref(fig:ox-section)a) during southeast monsoon season. Kimbiji differences in the timing and development of surface features and in the subsurface distributions of variables are influenced with the EACC, which flows northward throughout the year along the area. In NE months, this current brings warm waters with less nutrient and low chl-*a* values from the eastern of the Indian Ocean [@mahongo2014]. During the southeast monsoon season, the current still flows northward, but during this season, the water it carries has low temperature with relatively high values of chl-*a* and nutrients [@peter2018]. This parameters  are brought about in the area with wind forces, which deepen the mixed layer depth and lead to mixing of surface and  bottom waters. The EACC which appears to stream fast some Kilometers offshore Kimbiji 39.78$^\circ$E to 39.95$^\circ$E longitude appears to continue northward and its branch enter the Pemba Channel.
+
+The seasonal shift of surface winds cause the Rufiji River discharge characterize the hydrographic properties of water along the Kimbiji transect. Rufiji River discharge data over the period from 2018 to 2019 (Figure \@ref(fig:discharge)) were obtained from annual reports prepared by the ministry of Water, Water Resource Division. The Rufiji River discharge about 33$cumec$ of runoff from the several rivers in catchment. The seasonal pattern in river discharge, which peaks during the early of SE monsoon season and is minimal during the northeast monsoon season, largely reflects the pattern in regional rainfall. The Rufiji River discharge is the dominant source of freshwater runoff to the seasonal characteristic of surface water off-Kimbiji during all months, but particularly in late northeast monsoon  and early southeast monsoon season. 
+
+
+```{r discharge, fig.cap="Discharge of water in Rufiji River. The red dotted line indicate the date of maximum flow"}
+
+# knitr::include_graphics("graphics/discharge_stigler-01.png")
+knitr::include_graphics("graphics/discharge_stigler.pdf")
+
+```
+
+Previous Oceanographic research conducted in world oceans show that sea water temperature and dissolved oxygen are the most critical environmental parameters that influence tuna and tuna like species [@blanca; @andrade]. The two environmental parameters influence not only the biological processes in the ocean but also the tuna metabolism activities and hence the survival of tuna. According to @lu, the vertical distribution of most species of tuna and tuna like species is generally influenced with the thermal and oxygen structure of the water column, whereby small sized tuna species and juveniles tend to live close to the surface. By contrast, adults of large species are generally found in deeper waters. 
+
+Tunas are apex predators which are normally found in tropical and temperate marine waters, with high tolerance capacity for changing temperature conditions. However, most tuna species have preferred temperature conditions [@kaplan]. 
+DO below 2mg/L have a deleterious effect to fish and other marine organisms including the benthic fauna that have high tolerance to low DO levels. Shallow water fish including the pelagic fish require DO above 3.7mg/L for their body metabolism to function at optimum levels. Other studies show that among the tuna and tuna-like fishes, there are species that have relatively higher tolerance to low oxygen levels than others [@boyce].
+
+The temperature, dissolved oxygen and fluorescence from previous expeditions in section \@ref(existing) were used to compare the season difference. However, the level of variability in this parameters is not over the course of several days, but rather many years. The gap between Algoa and Agulhas II sampling off Kimbiji is thirteen years. Since much of such variability in ocean is attributable to changes in local winds and biological processes, low frequency sampling alone like hydrographic data from previous expedition, would not be able to resolve some of the critical oceanographic processes for pelagic species like tuna and tuna like. This call for attention of integrating ship-based expeditions and and satellite data. 
+
+It has long been understood that such sampling cannot provide synoptic views of parameter distributions over broad regions, but the extent to which the temporal and spatial scales of variability are confounded by shipboard observations was only fully appreciated after satellite remote-sensing became accessible to the oceanographic community. Satellite sensors are capable of discriminating fine-scale structure in sea-surface height, temperature, phytoplankton pigments and near-surface winds over broad areas. Therefore, they measure parameters that distinguish regional and global effects on physical and biological variability. Recently, satellites  has been indispensable tools for long-term monitoring of the coastal system, for assessing the temporal and spatial scales of regional variability and their links to global-scale processes and in providing a broader context for more detailed experimental studies conducted from ships or moored instrument arrays. However, satellite measure only the surface layer of the ocean.  Therefore, ship-based hydrographic survey and other technique are still needed to measure hydrographic parameters below the surface of the ocean.  
+
+
+# CONCLUSION {-}
+
+The SAPPHIRE study conducted in the Pemba Channel and along the Tanzanian coastal waters shows that: 
+
+-	There is a great amount of oceanographic data that can be used to establish the first Database along with field campaign data 
+-	The sea water temperatures which ranged from 25-26$^\circ$C during the SE monsoon season and 22-28$^\circ$C during the NE monsoon season are within the range of temperatures which are ideal to various tuna species and other species along the coastal waters of Tanzania. 
+-	Dissolved Oxygen levels ranged from 4.70 – 4.76 mlL^-1^ during the SE monsoon season and 4.5 – 5.0 mlL^-1^ during the NE monsoon season, which are above the lethal limit. 
+-	The ocean waters where most fishers fish is enriched with riverine nutrients (Nitrate and Phosphate) which support primary productivity and in turn secondary productivity and hence lives of apex predators like tuna.
+
+
+# ACKNOWLEDGEMENT {-}
+
+It would have been difficult for us to conduct this research without the support of large number of people and institutions. The UN Environment is highly acknowledged for funding through the project entitled “The Western Indian Ocean Large Marine Ecosystems Strategic Action Programme Policy Harmonisation and Institutional Reforms (WIO LME SAPPHIRE)”. The SAPPHIRE project is implemented by UNDP and executed by the Nairobi Convention Secretariat with the funding from the Global Environmental Facility (GEF).
+
+\newpage
+# APPENDIX {-}
+# (APPENDIX) Appendix {-}
+
+
+# Appendix A {#appendix-a}
+
+
+```{r c, fig.cap="rabble rabble"}
+
+ctd = read_csv("data/ctd_expeditions.csv")
+
+ctd = ctd %>% 
+  # filter(is.finite(pressure)) %>% 
+  group_by(time,lon,lat,station) %>% 
+  summarise_all(.funs = max, na.rm = TRUE) %>% 
+  ungroup()  %>% 
+  separate(time, into = c("date", "time"), sep = " ")%>% 
+  relocate(cruise, .before = date)
+  
+```
+
+
+```{r tab2}
+
+ctd %>% 
+  filter(date < lubridate::dmy(01012010)) %>% 
+  mutate_if(is.numeric, round, 2) %>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "Algoa Cruise Summary in August 2004") %>% 
+  kableExtra::add_header_above(c("","", "", "","","", "Maximum value" = 5)) %>% kableExtra::kable_styling(latex_options = "hold_position", font_size = 10)
+  
+  
+```
+
+\newpage
+
+```{r tab3}
+
+ctd %>% 
+  filter(date > lubridate::dmy(01012010) & date < lubridate::dmy(01012018)) %>% 
+  mutate_if(is.numeric, round, 2) %>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "Agulhas II Cruise Summary in November 2017") %>% 
+  kableExtra::add_header_above(c("","", "", "","","", "Maximum value" = 5)) %>% kableExtra::kable_styling(latex_options = "hold_position", font_size = 10)
+  
+
+
+  
+```
+
+\newpage
+
+
+```{r tab4}
+
+ctd %>% 
+  filter(date > lubridate::dmy(01012018)) %>% 
+  mutate_if(is.numeric, round, 2) %>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "Agulhas II Cruise Summary in June 2018") %>% 
+  kableExtra::add_header_above(c("","", "", "","","", "Maximum value" = 5)) %>% kableExtra::kable_styling(latex_options = "hold_position", font_size = 10)
+  
+
+
+  
+```
+
+\newpage
+# Appendix B {#appendix-b}
+
+```{r tab6}
+field.ctd = read_csv("data/ctd_dsfa_sapphire.csv")
+
+field.ctd %>% 
+  mutate(season = if_else(month %in% c(5,6,7,8,9,10), "SE", "NE")) %>% 
+  group_by(lon,lat, season) %>% 
+  summarise_all(.funs = max, na.rm = TRUE) %>% 
+  ungroup() %>% 
+  filter(season == "NE") %>% 
+  select(date,season, lon,lat,pressure:temperature, salinity:fluorescence) %>% 
+  mutate(across(is.numeric, round, 2))%>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "CTD casts collected in the Pemba Channel during the NE monsoon season") %>% 
+  kableExtra::add_header_above(c("","", "", "", "Maximum value" = 5)) %>% kableExtra::kable_styling(latex_options = "hold_position", font_size = 10)
+```
+
+\newpage
+
+```{r tab7}
+field.ctd %>% 
+  mutate(season = if_else(month %in% c(5,6,7,8,9,10), "SE", "NE")) %>% 
+  group_by(lon,lat, season) %>% 
+  summarise_all(.funs = max, na.rm = TRUE) %>% 
+  ungroup() %>% 
+  filter(season == "SE") %>% 
+  select(date,season, lon,lat,pressure:temperature, salinity:fluorescence) %>% 
+  mutate(across(is.numeric, round, 2))%>% 
+  kableExtra::kable(format = "latex", booktab = TRUE, caption = "CTD casts collected in the Pemba Channel during the SE monsoon season") %>% 
+  kableExtra::add_header_above(c("","", "", "", "Maximum value" = 5)) %>% kableExtra::kable_styling(latex_options = "hold_position", font_size = 10)
+```
+
+\newpage
+# REFERENCES

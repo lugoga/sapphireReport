@@ -1,0 +1,101 @@
+# Methods
+
+
+
+## Geographical Extent
+
+The focus of this study was the northern Tanzanian\index{Tanzania} coastal waters, largely encompassing the Pemba\index{Pemba} and \index{Zanzibar}Zanzibar Channels (Figure \@ref(fig:map)). The Pemba Channel is characterized by a narrow continental shelf (< 6 km) that is flanked by deeper sea bottom topography\index{Topography}, which attain a maximum depth of 800m [@semba2019]\index{Semba}. The Zanzibar channel, by contrast, is characterized by a shallow channel less than 30 m deep, located between Tanzania Mainland and Unguja\index{Unguja} Island [@shaghude1998morphology]\index{Shaghude}.
+
+
+```{r map, fig.align='center', fig.cap="A map of northern coastal Tanzania showing the bathymetry of Pemba and Zanzibar Channel. A solid black line represents isobar of 200 metres contour line. Insets are cross sections across the Pemba and Zanzibar Channel. Solid black line with arrow represent the western branch and the main East African Coastal Current"}
+
+# knitr::include_graphics("graphics/map-01.png")
+knitr::include_graphics("graphics/map.pdf")
+```
+
+
+The most prominent hydrographic\index{Hydrographic} feature along this continental shelf is presence of the East African Coastal Current (EACC)\index{East Africa Coastal Current}which is a western boundary current. This current distributes heat, salinity and nutrients along the coast of Tanzania. The current is influenced by the two seasonal monsoon winds \index{Semba}[@nyandwi2013; @semba2019,]\index{Nyandwi}, which blow toward the north during the \index{Southeast}southeast (SE) \index{Monsoon seasons}monsoon season (April to October) (Figure \@ref(fig:wind)b) and toward the south during the \index{Northeast}northeast (NE) (Figure \@ref(fig:wind)a) monsoon season (November to March). The reversal of the monsoon winds over the Tanzanian \index{Tanzania} coastal waters has considerable influence on the various oceanographic\index{Oceanographic}/biological parameters including sea surface \index{Temperature}temperature and \index{Chlorophyll}chlorophyll-a \index{Shaghude}(Shaghude et al, in prep.). 
+
+```{r wind, fig.align='center', fig.cap="Wind Speed and direction in the Pemba Channel during a) the northeast (NE) and b) southeast (SE) monsoon seasons"}
+
+# knitr::include_graphics("graphics/wind_plots-01.png")
+knitr::include_graphics("graphics/wind_plots.pdf")
+```
+
+## Data Sources
+
+This research used *primary* and *secondary* data. The secondary data consist of existing CTD \index{CTD} profiles of temperature\index{Temperature}, salinity\index{Salinity}, oxygen\index{Oxygen}, fluorescence\index{Fluorescence} and turbidity\index{Turbidity} and \index{Ocean Current}current velocity collected from previous cruises and expeditions\index{Expedition}. These data were acquired by various oceanographic \index{Oceanographic} cruises conducted along the northern Tanzanian coastal waters. Similar to secondary data, primary data also consist of profiles from CTD and current velocities from ADCP \index{ADCP}. But, unlike the secondary data, primary data were collected through oceanographic field campaigns along the northern Tanzanian coastal waters (between the mainland Tanzania\index{Tanzania} and \index{Pemba}Pemba Island).
+
+
+```{r ctd-expeds, fig.align='center', fig.cap="CTD casts deployed during the RV Algoa (2004) and RV Agulhas II (2017 and 2018) expeditions in the Tanzania marine and coastal waters"}
+
+# knitr::include_graphics("graphics/map_expeditions-01.png")
+knitr::include_graphics("graphics/map_expeditions.pdf")
+```
+
+### Oceanographic data from previous cruises
+
+Marine\index{Marine} scientists and oceanographers from many countries have cooperated on research in the Indian Ocean\index{Indian Oean}. @nansen described vessels that explored and researched the Western Indian Ocean over the last 50 years. Since 2004, most of the expeditions surveyed also the coastal\index{Coastal} and marine waters of Tanzania. This begun with \index{Algoa}**RV Algoa** in 2004, followed by \index{Meteor}RV Meteor in 2008,  the Second Indian Ocean Expedition by the \index{Agulhas}**RV Agulhas** in November 2017 and June 2018. The last expedition across the waters of Tanzania is the **RV Dr Fridtj of Nansen**\index{Nansen}, which cruised the area in 2018. The geographical locations of CTD casts from the three expeditions are shown in figure \@ref(fig:ctd-expeds).
+
+These expeditions provided high frequency CTD\index{CTD} and ADCP\index{ADCP} data from the surface to the deepest part of the ocean. The variables include physico-chemical water parameters such as temperature\index{Temperature}, salinity\index{Salinity}, oxygen\index{Oxygen}, conductivity and biological water parameters such as fluorescence\index{Fluorescence}. In addition, the cruises measured trajectories of ocean current using an ADCP. These data can characterize the coastal\index{Coastal} and marine\index{Marine} waters from the surface to the deepest waters as the profiles measured the water characteristics.
+
+Despite the various cruises, the associated data are hardly found, which had hampered research to characterize the coastal and marine waters of Tanzania. The present research, therefore, tried to bridge the existing information gap by assembling the data from previous cruises to characterize the marine waters of Tanzania. The first dataset consists of CTD casts with ADCP acquired in 2004 (by a south African research vessel, RV Algoa), 2017 and 2018 (by the South African research vessel, RV Agulhas II and 2008 by the German ship RV Meteor).
+
+### The acquisition of the field dataset {#field}
+
+The field dataset was planned to be completed by the end of the year 2020. The oceanographic\index{Oceanographic} field campaigns for this dataset focused on collecting in-situ\index{Insitu} measurements covering the annual seasonal monsoon cycle over the northern Tanzanian\index{Tanzania} coastal waters between the mainland and the Pemba\index{Pemba} islands. 
+
+
+```{r ctd-map, fig.align='center', fig.cap="A map of the Pemba Channel showing geographical positions of CTD stations casted during the northeast and south east monsoon seasons."}
+
+# knitr::include_graphics("graphics/map_ctd_casts-01.png")
+knitr::include_graphics("graphics/map_ctd_casts.pdf")
+```
+
+To complement the previous expeditions, the oceanographic field campaign aimed to collect profiles using CTD\index{CTD} and other water quality parameters including chlorophyll-a\index{Chlorophyll}, suspended solids\index{Suspended solids}, salinity\index{Salinity}, dissolved oxygen (DO)\index{Oxygen} and pH\index{pH}. In this study field campaigns during the NE\index{Northeast} and SE\index{Southeast} monsoon seasons were carried out from February 2020 to April 2020 and between July and October 2020 sampling on three transects across the Pemba Channel. The March 2020 campaign included CTD casts, water sampling and ADCP deployment.
+
+The area between Pangani\index{Pangani} and Tanga\index{Tanga} was selected to capture the oceanographic\index{Oceanographic} variables within the western side of the Pemba\index{Pemba} Channel (off Tanga), while the area between Mkoani\index{Mkoani} and Wete\index{Wete} in Pemba Island was selected to capture the field campaign on the eastern side of Pemba Channel (Figure \@ref(fig:ctd-map)). The field campaign was planned between February and April in order to capture the oceanographic\index{Oceanographic} conditions during the Northeast monsoon season, which starts in October/November and ends in March/April. The southeastern monsoon period was covered between July and October. A total of 26 stations were occupied in three transects crossing the Pemba Channel between the Mainland Tanzania\index{Tanzania} to Pemba Island (Figure \@ref(fig:ctd-map)).
+
+###	CTD configuration
+
+CTD\index{CTD} profiles of various variables were collected with a CTD machine namely, SBE 19plus V 2.2d. The CTD instrument was configured with an internal Digiquartz pressure sensor and a pair of external temperature\index{Temperature} and conductivity\index{Conductivity} sensors. The temperature-conductivity sensor pair used a Sea-Bird TC duct, which circulates seawater through a pump. The instrument configuration included also additional sensors for pH\index{pH}, oxygen\index{Oxygen}, fluorescence\index{Fluorescence}, PAR\index{PAR}, Nitrogen saturation\index{Nitrogen saturation}, Oxygen saturation\index{Oxygen saturation} and turbidity\index{Turbidity} (Table \@ref(tab:tab1)).
+
+
+```{r tab1}
+
+data.frame(Variable = c("Temperature", "Conductivity", "Salinity", "Oxygen", "Fluorescence", "PAR", "pH", "Nitrogen Saturation", "Oxygen Saturation", "Turbidity", "Density"),
+           Sensor = c("tv290C","c0S/m","sal00","sbeox0ML/L","flECO-AFL","par/log","ph","n2satML/L","oxsatML/L","turbWETntu0","density00"),
+           SI = c("Degree","S/m","PSU","ml/l","mg/m3","umol photons/m2/s","pH","ml/l","ml/l","NTU","kg/m3")) %>%
+  kableExtra::kable("latex", booktabs = T, 
+                    caption = "Sensor and Variables from CTD instruments") %>%
+  kableExtra::kable_styling(font_size = 11, latex_options = "hold_position")
+  
+```
+
+
+### CTD deployment
+
+The cast locations along the three transects were predetermined and the maximum depth at each location was determined. The CTD\index{CTD} was mounted in a vertical position to a 150 m rope from the lower part of a boat. The deployment procedure involved lowering a CTD instrument to about 2 metres below the surface  and waiting for a minute to stabilize the CTD pumps. The CTD was then raised until the sensors were close to the surface to begin the CTD profiling. The time and position of each cast was recorded using a hand held GPS\index{GPS} device. 
+
+
+### Data from water samples
+
+In addition to previous expeditions and CTD, a third dataset was also collected using Naskin\index{Naskin} bottles. This dataset was collected simultaneously with CTD data at the same geographical position shown in Figure \@ref(fig:ctd-map). The water for temperature\index{Temperature}, chlorophyll-a\index{Chlorophyll}, dissolved oxygen\index{Oxygen}, nitrate\index{Nitrate} and phosphate\index{Phosphate} were sampled at three strata---namely surface, 15 and 30 metres depth. 
+
+## Pre–processing of CTD Data
+
+The first part of standard processing of the CTD data was done with the CTD Data Acquisition Software from  Sea-Bird Electronics, Inc. as raw data and stored on a computer as binary number in `.hex` format. The raw datasets were converted from frequencies to engineering units using nominal sensor calibrations in SBE Data Processing software from Sea-Bird Electronics (www.seabird.com). The process involved selecting of variables based on sensors configured in the CTD instrument. The configuration file that comes with the instrument, governs the type of sensor and the variables collected. The variables of interest were selected and converted into physical units. The algorithms used to derive salinity and density while converting raw data was based on formulas of Equations of State (EOS-80). Both up-cast and down-cast were processed and exported as ASCII file in `.cnv` format.
+
+## Post–Processing of CTD Data
+
+The ASCII files were imported for post-processing. The post processing of the CTD\index{CTD} data was done using **oce** package [@kelley; @oce] in **R** language for statistical and computing [@r-base]. Profiles of temperature, conductivity\index{Conductivity}, oxygen\index{Oxygen}, fluorescence\index{Fluorescence} and SPAR\index{SPAR} were aligned to standard pressure of 0.25 dbar (~25 cm) interval. The standardized profiles were filtered with a low pass filter to remove spikes of CTD measurement caused by tow and roll of the boat. After this procedure salinity was computed from conductivity, temperature and pressure. The step-by-step processing of CTD profile were streamlined in a single function called  `cnv_tibble` from the **wior** package [@wior]. The function process the binary number in the CTD file and return a rectangular table with all the necessary variables [@wior]. The rectangular table of stations along with  its variables for the RV Algoa and two RV Agulhas II expeditions are shown in appendix \@ref(appendix-a). The CTD stations for field campaign during the NE and SE monsoon season are also listed in appendix \@ref(appendix-b).
+
+
+## Analysis and plotting
+Several analytical procedures and graphical formats were chosen to best represent distributional features. The first is **Seasonal contour maps**, which were used to represent the general features of NE vs. SE distributions of surface parameters in the Pemba Channel (*See* Figure \@ref(fig:map)).  The maps were constructed from all available surface (about 1-m depth) measurements made during each of the two seasons - here defined as May-September for southeast (SE) and October-March for NE monsoon season based on parameter similarities in between-month analyses of variance. Data were binned and organized by coordinate position into a matrix of 0.1 $\times$ 0.1$^\circ$ grid squares.   
+
+**Seasonal, cross-shelf depth profiles** are used to illustrate the connections between the temporal dynamics of regional surface features and vertical distributions. As above, the plots incorporate all measurements along the Kimbiji transect (*See* section \@ref(existing)) and Pemba Channel (*See* section \@ref(field)).  Data from NE and SE monsoon seasons were averaged in 5-km distances from shore before contouring.  The averaged grid values were contour-mapped using the **ggplot2** [@ggplot] and **metR** [@metr] package in R environment [@r-base].
+
+**Inter-annual anomaly plots** were used to summarize low frequency changes in regional environmental conditions. Following standard procedures in analyses of anomaly patterns from satellite data [@semba2021], calculations were based on regionally--averaged parameter values from the surface. Data from the central coasts of Tanzania (Kimbiji) and Pemba Channel were organized for this analysis following the influence of the East Africa Coastal Current on these two zones.  Inter-annual monthly means for each area were computed as the unweighted average of monthly values for all years in which data were collected. Regional parameter anomalies for a given month and year were computed as the mean of all individual anomalies relative to the monthly means for the areas in which the measurements were made. Nonparametric, rank-difference analysis was used to test correlations among anomaly patterns [@openair].  
+
+

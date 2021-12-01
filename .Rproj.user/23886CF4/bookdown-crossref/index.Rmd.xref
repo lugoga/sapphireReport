@@ -1,0 +1,9 @@
+h1:bibliography-ref.bib bibliography: ref.bib
+h1:url-your-book-url-like-httpsbookdown.orgyihuibookdown url: your book url like https://bookdown.org/yihui/bookdown
+h1:cover-image-path-to-the-social-sharing-image-like-imagescover.jpg cover-image: path to the social sharing image like images/cover.jpg
+h1:geometry-left2.5cm-right2cm-top2cm-bottom2.5cm geometry: 
+h2:polishing polishing
+h1:executive-summary Executive Summary
+h1:acknowledgements Acknowledgements
+h1:abbreviations Abbreviations
+

@@ -1,0 +1,17 @@
+h1:methods Methods
+h2:geographical-extent Geographical Extent
+fig:map A map of northern coastal Tanzania showing the bathymetry of Pemba and Zanzibar Channel. A solid black line represents isobar of 200 metres contour line. Insets are cross sections across the Pemba and Zanzibar Channel. Solid black line with arrow represent the western branch and the main East African Coastal Current
+fig:wind Wind Speed and direction in the Pemba Channel during a) the northeast (NE) and b) southeast (SE) monsoon seasons
+h2:data-sources Data Sources
+fig:ctd-expeds CTD casts deployed during the RV Algoa (2004) and RV Agulhas II (2017 and 2018) expeditions in the Tanzania marine and coastal waters
+h3:oceanographic-data-from-previous-cruises Oceanographic data from previous cruises
+h3:field The acquisition of the field dataset
+fig:ctd-map A map of the Pemba Channel showing geographical positions of CTD stations casted during the northeast and south east monsoon seasons.
+h3:ctd-configuration CTD configuration
+tab:tab1 Sensor and Variables from CTD instruments
+h3:ctd-deployment CTD deployment
+h3:data-from-water-samples Data from water samples
+h2:preprocessing-of-ctd-data Pre–processing of CTD Data
+h2:postprocessing-of-ctd-data Post–Processing of CTD Data
+h2:analysis-and-plotting Analysis and plotting
+

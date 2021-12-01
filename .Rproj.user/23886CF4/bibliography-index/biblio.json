@@ -1,0 +1,730 @@
+{
+    "sources": [
+        {
+            "author": [
+                {
+                    "family": "Jiddawi",
+                    "given": "Narriman S"
+                },
+                {
+                    "family": "Öhman",
+                    "given": "Marcus C"
+                }
+            ],
+            "container-title": "Ambio: a journal of the Human Environment",
+            "id": "jiddawi2002",
+            "issue": "7",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002
+                    ]
+                ]
+            },
+            "page": "518-527",
+            "publisher": "BioOne",
+            "title": "Marine fisheries in tanzania",
+            "type": "article-journal",
+            "volume": "31"
+        },
+        {
+            "author": [
+                {
+                    "family": "UNEP"
+                }
+            ],
+            "genre": "book",
+            "id": "easternResources",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001
+                    ]
+                ]
+            },
+            "publisher": "United Nations Environment Programme Nairobi",
+            "title": "Eastern africa atlas of coastal resources: tanzania",
+            "title-short": "Eastern africa atlas of coastal resources",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1371/journal.pone.0210303",
+            "URL": "https://doi.org/10.1371/journal.pone.0210303",
+            "author": [
+                {
+                    "family": "Semba",
+                    "given": "Masumbuko"
+                },
+                {
+                    "family": "Lumpkin",
+                    "given": "Rick"
+                },
+                {
+                    "family": "Kimirei",
+                    "given": "Ismael"
+                },
+                {
+                    "family": "Shaghude",
+                    "given": "Yohanna"
+                },
+                {
+                    "family": "Nyandwi",
+                    "given": "Ntahondi"
+                }
+            ],
+            "container-title": "PLOS ONE",
+            "genre": "Journal Article",
+            "id": "semba2019",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "e0210303",
+            "title": "Seasonal and spatial variation of surface current in the pemba channel, tanzania",
+            "type": "article-journal",
+            "volume": "14"
+        },
+        {
+            "author": [
+                {
+                    "family": "Shaghude",
+                    "given": "Yohanna W"
+                },
+                {
+                    "family": "Wannäs",
+                    "given": "Kjell O"
+                }
+            ],
+            "container-title": "Ambio",
+            "id": "shaghude1998morphology",
+            "issue": "8",
+            "issued": {
+                "date-parts": [
+                    [
+                        1998
+                    ]
+                ]
+            },
+            "page": "729-733",
+            "title": "Morphology and sediment distribution of the zanzibar channel",
+            "type": "article-journal",
+            "volume": "27"
+        },
+        {
+            "author": [
+                {
+                    "family": "Nyandwi",
+                    "given": "Ntahondi"
+                }
+            ],
+            "container-title": "Journal of Ocean Technology",
+            "id": "nyandwi2013",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "title": "The effects of monsoons on the east african coastal current through the zanzibar channel, tanzania.",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "ISBN": "9251098727",
+            "author": [
+                {
+                    "family": "Groeneveld",
+                    "given": "Johan C"
+                },
+                {
+                    "family": "Koranteng",
+                    "given": "Kwame A"
+                }
+            ],
+            "genre": "book",
+            "id": "nansen",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "publisher": "Food; Agriculture Organization of the United Nations (FAO)",
+            "title": "The RV dr fridtjof nansen in the western indian ocean: Voyages of marine research and capacity development.[1975-2016]",
+            "title-short": "The RV dr fridtjof nansen in the western indian ocean",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Kelley",
+                    "given": "Dan"
+                }
+            ],
+            "genre": "book",
+            "id": "kelley",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "publisher": "Springer",
+            "publisher-place": "New York, U.S.A",
+            "title": "Oceanographic analysis with r",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=oce",
+            "author": [
+                {
+                    "family": "Dan",
+                    "given": "Kelley"
+                },
+                {
+                    "family": "Clark",
+                    "given": "Richards"
+                }
+            ],
+            "id": "oce",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 1.4-0",
+            "title": "Oce: Analysis of oceanographic data",
+            "title-short": "Oce",
+            "type": "book"
+        },
+        {
+            "URL": "https://www.R-project.org/",
+            "author": [
+                {
+                    "literal": "R Core Team"
+                }
+            ],
+            "id": "r-base",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "publisher": "R Foundation for Statistical Computing",
+            "publisher-place": "Vienna, Austria",
+            "title": "R: A language and environment for statistical computing",
+            "title-short": "R",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Semba",
+                    "given": "Masumbuko"
+                },
+                {
+                    "family": "Kuguru",
+                    "given": "Baraka"
+                },
+                {
+                    "family": "Seilale",
+                    "given": "Innocent"
+                },
+                {
+                    "family": "Ismael",
+                    "given": "Kimirei"
+                },
+                {
+                    "family": "Shaghude",
+                    "given": "Yohanna"
+                },
+                {
+                    "family": "Nyandwi",
+                    "given": "Ntahondi"
+                }
+            ],
+            "id": "semba2021",
+            "issued": {
+                "date-parts": []
+            },
+            "publisher": "Under review",
+            "title": "Coastal upwelling and small pelagic fisheries in the pemba channel",
+            "type": ""
+        },
+        {
+            "author": [
+                {
+                    "family": "Semba",
+                    "given": "Masumbuko"
+                },
+                {
+                    "family": "Kuguru",
+                    "given": "Baraka Magreth"
+                },
+                {
+                    "family": "Shaghude",
+                    "given": "Yohanna"
+                },
+                {
+                    "family": "Nyandwi",
+                    "given": "Ntahondi"
+                },
+                {
+                    "family": "Kyewalyanga"
+                },
+                {
+                    "family": "Ismael",
+                    "given": "Kimirei"
+                }
+            ],
+            "id": "semba2021Tuna",
+            "issued": {
+                "date-parts": []
+            },
+            "publisher": "Under review",
+            "title": "Modeling oceanographic factors influencing catch rate of bigeye tuna in the exclusive economic zone of tanzania",
+            "type": ""
+        },
+        {
+            "DOI": "10.5281/zenodo.2593516",
+            "URL": "https://github.com/eliocamp/metR",
+            "author": [
+                {
+                    "family": "Campitelli",
+                    "given": "Elio"
+                }
+            ],
+            "id": "metr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 0.9.2",
+            "title": "metR: Tools for easier analysis of meteorological fields",
+            "title-short": "metR",
+            "type": "book"
+        },
+        {
+            "ISBN": "978-3-319-24277-4",
+            "URL": "https://ggplot2.tidyverse.org",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                }
+            ],
+            "id": "ggplot",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "publisher": "Springer-Verlag New York",
+            "title": "ggplot2: Elegant graphics for data analysis",
+            "title-short": "ggplot2",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1016/j.envsoft.2011.09.008",
+            "ISSN": "1364-8152",
+            "author": [
+                {
+                    "family": "Carslaw",
+                    "given": "David C."
+                },
+                {
+                    "family": "Ropkins",
+                    "given": "Karl"
+                }
+            ],
+            "container-title": "Environmental Modelling & Software",
+            "id": "openair",
+            "issue": "0",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "page": "52-61",
+            "title": "Openair — an r package for air quality data analysis",
+            "type": "article-journal",
+            "volume": "27–28"
+        },
+        {
+            "author": [
+                {
+                    "family": "Semba",
+                    "given": "Masumbuko"
+                },
+                {
+                    "family": "Peter",
+                    "given": "Nyamisi"
+                }
+            ],
+            "id": "wior",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "note": "R package version 0.0.0.1",
+            "title": "Wior: Easy tidy and process oceanographic data",
+            "title-short": "Wior",
+            "type": "book"
+        },
+        {
+            "DOI": "10.3389/fmars.2020.00441",
+            "ISSN": "2296-7745",
+            "author": [
+                {
+                    "family": "Orúe",
+                    "given": "Blanca"
+                },
+                {
+                    "family": "Pennino",
+                    "given": "Maria Grazia"
+                },
+                {
+                    "family": "Lopez",
+                    "given": "Jon"
+                },
+                {
+                    "family": "Moreno",
+                    "given": "Gala"
+                },
+                {
+                    "family": "Santiago",
+                    "given": "Josu"
+                },
+                {
+                    "family": "Ramos",
+                    "given": "Lourdes"
+                },
+                {
+                    "family": "Murua",
+                    "given": "Hilario"
+                }
+            ],
+            "container-title": "Frontiers in Marine Science",
+            "genre": "Journal Article",
+            "id": "blanca",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "title": "Seasonal distribution of tuna and non-tuna species associated with drifting fish aggregating devices (DFADs) in the western indian ocean using fishery-independent data",
+            "type": "article-journal",
+            "volume": "7"
+        },
+        {
+            "DOI": "10.1046/j.1444-2906.2001.00360.x",
+            "author": [
+                {
+                    "family": "Lu",
+                    "given": "Hsueh-Jung"
+                },
+                {
+                    "family": "Lee",
+                    "given": "Kuo-Tien"
+                },
+                {
+                    "family": "Lin",
+                    "given": "Hsiu-Ling"
+                },
+                {
+                    "family": "Liao",
+                    "given": "Cheng-Hsin"
+                }
+            ],
+            "container-title": "Fisheries science",
+            "genre": "Journal Article",
+            "id": "lu",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001
+                    ]
+                ]
+            },
+            "page": "1046-1052",
+            "title": "Spatio-temporal distribution of yellowfin tuna <i>thunnus albacares</i> and bigeye tuna <i>thunnus obesus</i> in the tropical pacific ocean in relation to large-scale temperature fluctuation during ENSO episodes",
+            "type": "article-journal",
+            "volume": "67"
+        },
+        {
+            "DOI": "10.1046/j.1365-2419.2003.00220.x",
+            "ISSN": "1054-6006",
+            "URL": "https://onlinelibrary.wiley.com/doi/abs/10.1046/j.1365-2419.2003.00220.x",
+            "author": [
+                {
+                    "family": "Andrade",
+                    "given": "H. A."
+                }
+            ],
+            "container-title": "Fisheries Oceanography",
+            "genre": "Journal Article",
+            "id": "andrade",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003
+                    ]
+                ]
+            },
+            "page": "10-18",
+            "title": "The relationship between the skipjack tuna (katsuwonus pelamis) fishery and seasonal temperature variability in the south-western atlantic",
+            "type": "article-journal",
+            "volume": "12"
+        },
+        {
+            "DOI": "10.1093/icesjms/fst233",
+            "ISSN": "1054-3139",
+            "URL": "https://doi.org/10.1093/icesjms/fst233",
+            "author": [
+                {
+                    "family": "Kaplan",
+                    "given": "David M."
+                },
+                {
+                    "family": "Chassot",
+                    "given": "Emmanuel"
+                },
+                {
+                    "family": "Amandé",
+                    "given": "Justin M."
+                },
+                {
+                    "family": "Dueri",
+                    "given": "Sibylle"
+                },
+                {
+                    "family": "Demarcq",
+                    "given": "Hervé"
+                },
+                {
+                    "family": "Dagorn",
+                    "given": "Laurent"
+                },
+                {
+                    "family": "Fonteneau",
+                    "given": "Alain"
+                }
+            ],
+            "container-title": "ICES Journal of Marine Science",
+            "genre": "Journal Article",
+            "id": "kaplan",
+            "issue": "7",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "page": "1728-1749",
+            "title": "Spatial management of indian ocean tropical tuna fisheries: Potential and perspectives",
+            "title-short": "Spatial management of indian ocean tropical tuna fisheries",
+            "type": "article-journal",
+            "volume": "71"
+        },
+        {
+            "URL": "http://www.int-res.com/abstracts/meps/v355/p267-276/",
+            "author": [
+                {
+                    "family": "Boyce",
+                    "given": "D. G."
+                },
+                {
+                    "family": "Tittensor",
+                    "given": "D. P."
+                },
+                {
+                    "family": "Worm",
+                    "given": "B."
+                }
+            ],
+            "container-title": "Marine Ecology Progress Series",
+            "genre": "Journal Article",
+            "id": "boyce",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "page": "267-276",
+            "title": "Effects of temperature on global patterns of tuna and billfish richness",
+            "type": "article-journal",
+            "volume": "355"
+        },
+        {
+            "DOI": "10.5897/JOMS2013. 0100",
+            "ISSN": "2141-2294",
+            "author": [
+                {
+                    "family": "Mahongo",
+                    "given": "Shigalla B"
+                },
+                {
+                    "family": "Shaghude",
+                    "given": "Yohanna W"
+                }
+            ],
+            "container-title": "Journal of Oceanography and Marine Science",
+            "genre": "Journal Article",
+            "id": "mahongo2014",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "page": "1-7",
+            "title": "Modelling the dynamics of the tanzanian coastal waters",
+            "type": "article-journal",
+            "volume": "5"
+        },
+        {
+            "ISSN": "0856-860X",
+            "author": [
+                {
+                    "family": "Peter",
+                    "given": "Nyamisi"
+                },
+                {
+                    "family": "Semba",
+                    "given": "Masumbuko"
+                },
+                {
+                    "family": "Lugomela",
+                    "given": "Charles"
+                },
+                {
+                    "family": "Kyewalyanga",
+                    "given": "Margareth S"
+                }
+            ],
+            "container-title": "Western Indian Ocean Journal of Marine Science",
+            "genre": "Journal Article",
+            "id": "peter2018",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "25-34",
+            "title": "The influence of physical-chemical variables on the spatial and seasonal variation of chlorophyll-a in coastal waters of unguja, zanzibar, tanzania",
+            "type": "article-journal",
+            "volume": "17"
+        },
+        {
+            "author": [
+                {
+                    "family": "Masalu",
+                    "given": "DCP"
+                }
+            ],
+            "container-title": "The Open Oceanography Journal",
+            "id": "masalu2008",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "title": "An overview of the bathymetry and geomorphology of the tanzania EEZ",
+            "type": "article-journal",
+            "volume": "2"
+        },
+        {
+            "author": [
+                {
+                    "family": "URT"
+                }
+            ],
+            "id": "fishAct",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003
+                    ]
+                ]
+            },
+            "publisher": "United Republic of Tanzania",
+            "title": "The fisheries act of 2003. Act no. 22 of 2003. The united republic of tanzania (URT). Ministry of natural resources and tourisms (MNRT)",
+            "type": ""
+        },
+        {
+            "author": [
+                {
+                    "family": "Khatib",
+                    "given": "MM"
+                },
+                {
+                    "family": "William",
+                    "given": "CP"
+                },
+                {
+                    "family": "Shaghude",
+                    "given": "YW"
+                },
+                {
+                    "family": "Kangalawe",
+                    "given": "RYM"
+                }
+            ],
+            "container-title": "JOURNAL OF THE GEOGRAPHICAL ASSOCIATION OF TANZANIA",
+            "id": "khatib2018",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "208-255",
+            "title": "Livelihood continuity and change: Adaptation to climate and environmental change in northern unguja, zanzibar 1916-2016",
+            "title-short": "Livelihood continuity and change",
+            "type": "article-journal",
+            "volume": "39"
+        }
+    ],
+    "project_biblios": [
+        "sapphire.bib"
+    ]
+}
